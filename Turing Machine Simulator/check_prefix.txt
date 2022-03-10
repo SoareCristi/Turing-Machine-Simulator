@@ -1,0 +1,75 @@
+#   Examen LFA - exercitiul 3
+#     Echipa:
+# 1.Filote Petre Serban (grupa 144)
+# 2.Contor Flavius Andrei (grupa 144)
+# 3.Soare Cristian Alexandru (grupa 144)
+
+
+#Se considera prefix al unui cuvant w = {0, 1}* orice slice care incepe de la pozitia 0 din cuvantul respectiv, inclusiv cuvantul vid
+
+States:
+
+	q1
+	q2
+	q_accept
+	q_reject
+
+End
+
+Input alphabet:
+	0
+	1
+	#
+End
+
+Tape alphabet:
+    0
+    1
+    #
+	_
+End
+
+Transitions:
+
+	q1,q1,1,1,e,e,S,R
+	q1,q1,1,0,e,e,S,R
+	q1,q1,0,1,e,e,S,R
+	q1,q1,0,0,e,e,S,R
+	q1,q2,#,#,e,e,S,R
+	q1,q2,0,#,e,e,S,R
+	q1,q2,1,#,e,e,S,R
+	q2,q2,1,1,e,e,R,R
+	q2,q2,0,0,e,e,R,R
+	q2,q_accept,0,_,e,e,S,S
+	q2,q_accept,1,_,e,e,S,S
+	q2,q_accept,#,_,e,e,S,S
+	q2,q_reject,1,0,e,e,S,S
+	q2,q_reject,0,1,e,e,S,S
+	q2,q_reject,#,1,e,e,S,S
+	q2,q_reject,#,0,e,e,S,S
+	q2,q_reject,1,#,e,e,S,S
+	q2,q_reject,0,#,e,e,S,S
+	q2,q_reject,#,#,e,e,S,S
+	q1,q_reject,1,_,e,e,S,S
+	q1,q_reject,0,_,e,e,S,S
+    q1,q_reject,_,_,e,e,S,S
+
+End
+
+Start state:
+
+    q1
+
+End
+
+Accept state:
+
+    q_accept
+
+End
+
+Reject state:
+
+    q_reject
+
+End

@@ -1,0 +1,63 @@
+#   Examen LFA - exercitiul 4
+#     Echipa:
+# 1.Filote Petre Serban (grupa 144)
+# 2.Contor Flavius Andrei (grupa 144)
+# 3.Soare Cristian Alexandru (grupa 144)
+
+
+States:
+	q1
+	q2
+	q3
+	q_accept
+	q_reject
+
+End
+
+Programul are ca scop rularea oricarui input format din 1 si + inclusiv la sirului vid
+Numerele naturale sunt codate astfel: 1 = 1, 2 = 11, 3 = 111, 4 = 1111 ...
+Adunarea cu 0 se codeaza astfel 11+   (2+0); +11 (0+2); + (0+0)
+Trebuie sa avem intotdeauna un singur + in input in caz contrar mergem in q_reject
+
+Input alphabet:
+	1
+	+
+End
+
+Tape alphabet:
+    1
+    +
+	_
+End
+
+Transitions:
+	q1,q1,1,1,e,e,S,R
+	q1,q2,1,+,e,1,S,R
+	q1,q2,+,+,1,1,S,R
+	q1,q_reject,1,_,e,e,S,S
+	q1,q_reject,_,_,e,e,S,S
+	q2,q2,1,1,e,e,S,R
+	q2,q3,1,_,e,e,S,L
+	q2,q_reject,1,+,e,e,S,S
+	q3,q3,1,1,e,_,S,S
+	q3,q_accept,1,_,e,e,S,S
+	q3,q_accept,_,_,e,e,S,S
+End
+
+Start state:
+
+    q1
+
+End
+
+Accept state:
+
+    q_accept
+
+End
+
+Reject state:
+
+    q_reject
+
+End
